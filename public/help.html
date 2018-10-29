@@ -1,0 +1,27 @@
+<html>
+    let express = require("express");
+
+const app = express();
+
+app.use(express.static('public'))
+
+<!-- app.use(function(req,res,next){
+    return res.send("what do you want? 234234 ** @#lk2j3");
+ }); -->
+
+ let users = require("./state").users;
+
+app.use(function(request,response,next){
+   return response.send(users);
+});
+
+ 
+
+app.listen(3002, (err) => {
+if (err) {
+  return console.log("Error", err);
+}
+console.log("Web server is now living in apartment 3002");
+});
+
+</html>
